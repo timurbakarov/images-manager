@@ -1,0 +1,30 @@
+{
+    "name": "tiix/image-manager",
+    "description": "Image manager",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Timur Bakarov",
+            "email": "tbakarov@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php" : "~5.5|~7.0",
+        "intervention/image": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tiix\\ImageManager\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Tiix\\ImageManager\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "jolicode/jolinotif": "^1.0"
+    }
+}
