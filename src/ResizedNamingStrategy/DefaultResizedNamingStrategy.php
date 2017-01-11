@@ -2,8 +2,8 @@
 
 namespace Tiix\ImageManager\ResizedNamingStrategy;
 
-use Tiix\ImageManager\Exceptions\InvalidArgumentException;
 use Tiix\ImageManager\ResizedNamingStrategyInterface;
+use Tiix\ImageManager\Exceptions\InvalidArgumentException;
 
 class DefaultResizedNamingStrategy implements ResizedNamingStrategyInterface
 {
@@ -25,6 +25,6 @@ class DefaultResizedNamingStrategy implements ResizedNamingStrategyInterface
 
         $height = $height ? 'x' . $height : '';
 
-        return sprintf('%s%s%s%s.%s', $directory, $pathinfo['filename'], $width, $height, $pathinfo['extension']);
+        return sprintf('%s%s_%s%s.%s', $directory, $pathinfo['filename'], $width, $height, $pathinfo['extension']);
     }
 }

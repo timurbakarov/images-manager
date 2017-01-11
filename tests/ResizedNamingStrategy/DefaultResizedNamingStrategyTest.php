@@ -13,7 +13,7 @@ class DefaultResizedNamingStrategyTest extends TestCase
         $strategy = new DefaultResizedNamingStrategy();
 
         $name = 'image.jpg';
-        $this->assertEquals('image100x150.jpg', $strategy->getName($name, 100, 150));
+        $this->assertEquals('image_100x150.jpg', $strategy->getName($name, 100, 150));
     }
 
     /** @test */
@@ -22,7 +22,7 @@ class DefaultResizedNamingStrategyTest extends TestCase
         $strategy = new DefaultResizedNamingStrategy();
 
         $name = 'subfolder/image.jpg';
-        $this->assertEquals('subfolder/image100x150.jpg', $strategy->getName($name, 100, 150));
+        $this->assertEquals('subfolder/image_100x150.jpg', $strategy->getName($name, 100, 150));
     }
 
     /** @test */
@@ -31,6 +31,6 @@ class DefaultResizedNamingStrategyTest extends TestCase
         $strategy = new DefaultResizedNamingStrategy();
 
         $name = 'image.jpg';
-        $this->assertEquals('image100.jpg', $strategy->getName($name, 100));
+        $this->assertEquals('image_100.jpg', $strategy->getName($name, 100));
     }
 }
