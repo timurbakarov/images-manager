@@ -26,8 +26,27 @@ class TestCase extends \PHPUnit_Framework_TestCase
     /**
      * @return string
      */
-    public function outputPath()
+    public function outputPath($file = null)
     {
-        return __DIR__ . '/_output';
+        return __DIR__ . '/_output' . ($file ? '/' . $file : '');
+    }
+
+    /**
+     * @param null $file
+     * @return string
+     */
+    public function dataPath($file = null)
+    {
+        return __DIR__ . '/_data' . ($file ? '/' . $file : '');
+    }
+
+    public function setUp()
+    {
+        $this->emptyDir($this->outputPath());
+    }
+
+    public function tearDown()
+    {
+        $this->emptyDir($this->outputPath());
     }
 }
