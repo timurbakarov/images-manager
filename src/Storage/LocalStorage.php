@@ -31,6 +31,10 @@ class LocalStorage implements StorageInterface
         $destination = $this->path . $name;
         $destinationPath = pathinfo($destination, PATHINFO_DIRNAME);
 
+        if(file_exists($destination)) {
+            $this->removeResized($destination);
+        }
+
         if(!is_dir($destinationPath)) {
             mkdir($destinationPath, 0755, true);
         }
@@ -93,5 +97,20 @@ class LocalStorage implements StorageInterface
                 }
             }
         }
+    }
+
+    /**
+     * @param $destination
+     * @return $this
+     */
+    private function removeResized($destination)
+    {
+        $pathinfo = pathinfo($destination);
+
+        foreach(glob($pathinfo['dirname'] . '/' . $pathinfo['filename'] .'_*.' . $pathinfo['extension']) as $file) {
+            unlink($file);
+        }
+
+        return $this;
     }
 }
